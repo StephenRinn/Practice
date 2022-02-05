@@ -8,11 +8,18 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
 class Solution {
+    
+    // Iterator for K lists
     public ListNode mergeKLists(ListNode[] lists) {
         
         if(lists.length == 0){
             return null;
+        }
+        
+        if(lists.length == 1){
+            return lists[0];
         }
         
         ListNode solution = lists[0];
@@ -24,6 +31,7 @@ class Solution {
         return solution;
     }
     
+    // Recursive function for merging 2 single linked lists
     private ListNode Merge(ListNode first, ListNode second){
         
         if(first == null){
