@@ -17,10 +17,7 @@ class Solution {
         if(lists.length == 0){
             return null;
         }
-        
-        if(lists.length == 1){
-            return lists[0];
-        }
+
         
         ListNode solution = lists[0];
         
