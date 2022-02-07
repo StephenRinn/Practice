@@ -8,8 +8,7 @@ class Solution {
         
         // Check hashset and delete it if it exists
         for(int i : nums){
-            if(NumberCount.add(i)){  
-            }else{
+            if(!NumberCount.add(i)){
                 NumberCount.remove(i);;
             }
         }
