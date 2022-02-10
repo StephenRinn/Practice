@@ -23,18 +23,13 @@ class Solution {
         // Add value to hashset
         for(int i = 0; i < nums.length; i++){
             exists.add(nums[i]);
-            dupe.add(nums[i]);
         }
         
 
         for(Integer i: exists){
-            if(dupe.contains(i-k)){
+            if(exists.contains(i+k)){
                 count++;
             }
-            if(dupe.contains(i+k)){
-                count++;
-            }
-            dupe.remove(i);
         }
         
         return count;
