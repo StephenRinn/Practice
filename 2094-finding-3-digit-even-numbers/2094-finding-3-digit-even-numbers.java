@@ -8,10 +8,12 @@ class Solution {
         int arraySize = 10, count = 0;
         HashMap<Integer, Integer> orderedValue = new HashMap<Integer, Integer>();
         
+        // find total of each digit in the array
         for(int i = 0; i < digits.length; i++){
             digitCount[digits[i]]++;
         }
         
+        // find all possible solutions in numerical order
         for(int i = 1; i < arraySize; i++){
             Arrays.fill(usedCount, 0);
             if(digitCount[i] > 0){
@@ -31,6 +33,8 @@ class Solution {
             }
         }
         
+        
+        // Create the return array and cycle through hashmap
         int[] result = new int[count];
         for(int i = 0; i < count; i++){
             result[i] = orderedValue.get(i);
