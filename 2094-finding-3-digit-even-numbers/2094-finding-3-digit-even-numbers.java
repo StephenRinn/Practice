@@ -1,3 +1,5 @@
+// 25 min work time (slowed down by trying to find edge cases to ensure first submission success)
+
 import java.util.HashMap;
 
 class Solution {
