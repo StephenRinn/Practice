@@ -13,13 +13,19 @@
  *     }
  * }
  */
+
+// Recursion seemed like the fastest solution to this problem
 class Solution {
     public int maxDepth(TreeNode root) {
         
+        
+        // Catch empty input from test ( missed on first submission )
         if(root == null){
             return 0;
         }
         
+        
+        // Check common use for leaves before adding up through the max function
         if(root.left != null && root.right == null){
             return (maxDepth(root.left) + 1);
         }
