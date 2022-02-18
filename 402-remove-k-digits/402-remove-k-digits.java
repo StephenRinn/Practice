@@ -1,8 +1,12 @@
+// Working with queue (REVIEW) worked on for ~ 20 min before running out of time
+
 class Solution {
     public String removeKdigits(String num, int k) {        
         if(k >= num.length()) return "0";
 
         Deque<Character> stack = new ArrayDeque<>();
+        
+        // Checks for equal values (Part I struggled with logic of)
         for(char c : num.toCharArray()) {
             while(k > 0 && !stack.isEmpty() && stack.peekLast() > c) {
                 stack.removeLast();
