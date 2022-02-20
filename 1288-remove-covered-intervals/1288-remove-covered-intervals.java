@@ -1,5 +1,4 @@
-import java.util.HashMap;
-
+// Study ran out of time at inlaws before competition (Sorts then checks for overlapping)
 class Solution {
     public int removeCoveredIntervals(int[][] intervals) {
         return removeCoveredIntervals2(intervals);
