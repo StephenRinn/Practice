@@ -1,5 +1,7 @@
 import java.util.HashMap;
 
+// Simple hash solution which is slower than majority vote algorithm although majority vote only works without some edge cases (tied numbers)
+
 class Solution {
     public int majorityElement(int[] nums) {
         long half = nums.length / 2;
