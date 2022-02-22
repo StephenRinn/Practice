@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.HashMap;
 
 class Solution {
     public int[] findingUsersActiveMinutes(int[][] logs, int k) {
@@ -12,7 +11,7 @@ class Solution {
             return output;
         }
         
-        // NlogN sort was fastest I could find with a linear repeat check
+        // NlogN sort was fastest I could find using a single hashset
         Arrays.sort( logs, (a, b) -> Integer.compare(a[0], b[0]) );
         
         // Set up first addition to enable starting at 1
