@@ -3,7 +3,7 @@ class Solution
     private int[] color=new int[105];
     
     private boolean dfsCheck(int node, int[][] graph)
-    {        
+    {
         if(color[node]==-1) color[node]=1;
         
         for(int adjNode : graph[node])
