@@ -8,42 +8,49 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-
 class Solution {
-    
-    // Iterator for K lists
     public ListNode mergeKLists(ListNode[] lists) {
-        
         if(lists.length == 0){
             return null;
-        }
-
-        
-        ListNode solution = lists[0];
-        
-        for(int i = 1; i < lists.length; i++){
-            solution = Merge(solution,lists[i]);
+        }else if(lists.length == 1){
+            return lists[0];
         }
         
-        return solution;
+        ListNode newHead = new ListNode();
+        newHead = mergeTwoLists(lists[0],lists[1]);
+        
+        if(lists.length > 2){
+            for(int i = 2; i < lists.length; i++){
+                newHead = mergeTwoLists(newHead,lists[i]);
+            }
+        }
+        return newHead;
     }
     
-    // Recursive function for merging 2 single linked lists
-    private ListNode Merge(ListNode first, ListNode second){
+    
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode head = new ListNode();
+        ListNode currentPos = head;
         
-        if(first == null){
-            return second;
-        }else if(second == null){
-            return first;
+        while(list1 != null && list2 != null){
+            if(list1.val < list2.val){
+                currentPos.next = list1;
+                list1 = list1.next;
+            }else {
+                currentPos.next = list2;
+                list2 = list2.next;
+            }
+            currentPos = currentPos.next;
         }
         
-        if(first.val < second.val){
-            first.next = Merge(first.next,second);
-            return first;
-        }else{
-            second.next = Merge(first,second.next);
-            return second;
+        if(list1 != null){
+            currentPos.next = list1;
         }
         
+        if(list2 != null){
+            currentPos.next = list2;
+        }
+        
+        return head.next;
     }
 }
