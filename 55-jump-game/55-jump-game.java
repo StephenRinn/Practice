@@ -1,20 +1,27 @@
 class Solution {
     public boolean canJump(int[] nums) {
-        int[] canReach = new int[nums.length];
-        canReach[0] = 1;
         int jump = 0;
+        int distance = 2;
         
-        for(int i = 0; i < nums.length - 1; i++){
-            if(canReach[i] == 1){
-                jump = nums[i];
-                for(int j = 1; j <= jump; j++){
-                    if(j+i < (nums.length)){
-                        canReach[j + i] = 1;
-                    } 
+        if(nums[0] == 0 && nums.length > 1){return false;}
+        if(nums[0] == 0 && nums.length == 1){return true;}
+        
+        for(int i = nums.length - 2; i >= 0; i--){
+            if(nums[i] == 0){
+                for(int j = i - 1; j >= 0; j--){
+                    if(nums[j] >= distance){
+                        distance = 2;
+                        break;
+                    }else{
+                        distance++;
+                    }
+                    if(j == 0){
+                        return false;
+                    }
                 }
             }
         }
         
-        return canReach[nums.length-1] == 1;
+        return true;
     }
 }
