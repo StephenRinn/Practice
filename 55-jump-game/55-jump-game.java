@@ -7,7 +7,7 @@ class Solution {
         for(int i = 0; i < nums.length - 1; i++){
             if(canReach[i] == 1){
                 jump = nums[i];
-                for(int j = 0; j <= jump; j++){
+                for(int j = 1; j <= jump; j++){
                     if(j+i < (nums.length)){
                         canReach[j + i] = 1;
                     } 
