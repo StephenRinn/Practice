@@ -1,32 +1,41 @@
 class Solution {
     public boolean backspaceCompare(String s, String t) {
-        StringBuilder sBuilder = new StringBuilder();
-        StringBuilder tBuilder = new StringBuilder();
+        Stack aStack = new Stack();
+        Stack bStack = new Stack();
         
         for(int i = 0; i < s.length(); i++){
             char temp = s.charAt(i);
-            if(temp == '#' && sBuilder.length() != 0){
-                System.out.println(sBuilder.length());
-                sBuilder.deleteCharAt(sBuilder.length() - 1);
-            }else if(temp == '#' && sBuilder.length() == 0){
+            if(temp == '#' && !aStack.empty()){
+                aStack.pop();
+            }else if(temp == '#' && aStack.empty()){
                 continue;
             }else{
-                sBuilder.append(temp);
+                aStack.push(temp);
             }
         }
         
         for(int i = 0; i < t.length(); i++){
             char temp = t.charAt(i);
-            if(temp == '#' && tBuilder.length() != 0){
-                tBuilder.deleteCharAt(tBuilder.length() - 1);
-            }else if(temp == '#' && tBuilder.length() == 0){
+            if(temp == '#' && !bStack.empty()){
+                bStack.pop();
+            }else if(temp == '#' && bStack.empty()){
                 continue;
             }else{
-                tBuilder.append(temp);
+                bStack.push(temp);
             }
         }
         
-        return (sBuilder.toString().equals(tBuilder.toString()));
+        while(!aStack.empty() && !bStack.empty()){
+            if(aStack.pop() != bStack.pop()){
+                return false;
+            }
+        }
+        
+        if(!aStack.empty() || !bStack.empty()){
+            return false;
+        }
+        
+        return true;
         
     }
 }
