@@ -1,6 +1,7 @@
 class Solution {
      public String removeDuplicates(String s, int k) {
         
+        // Char stack and count stack to find duplicates (similar to ({[]}) matching problem)
         Stack<Character> charSt=new Stack<>();
         Stack<Integer> countSt=new Stack<>();
         
